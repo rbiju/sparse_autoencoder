@@ -3,11 +3,10 @@ from typing import Any, Generic, TypeVar
 
 from torch.nn import DataParallel, Module
 
-
 T = TypeVar("T", bound=Module)
 
 
-class DataParallelWithModelAttributes(DataParallel[T], Generic[T]):
+class DataParallelWithModelAttributes(DataParallel, Generic[T]):
     """Data parallel with access to underlying model attributes/methods.
 
     Allows access to underlying model attributes/methods, which is not possible with the default

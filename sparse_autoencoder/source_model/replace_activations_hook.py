@@ -10,7 +10,6 @@ from transformer_lens.hook_points import HookPoint
 from sparse_autoencoder.autoencoder.lightning import LitSparseAutoencoder
 from sparse_autoencoder.autoencoder.model import SparseAutoencoder
 
-
 if TYPE_CHECKING:
     from sparse_autoencoder.tensor_types import Axis
 
@@ -19,7 +18,7 @@ def replace_activations_hook(
     value: Tensor,
     hook: HookPoint,  # noqa: ARG001
     sparse_autoencoder: SparseAutoencoder
-    | DataParallel[SparseAutoencoder]
+    # | DataParallel[SparseAutoencoder]
     | LitSparseAutoencoder
     | Module,
     component_idx: int | None = None,
