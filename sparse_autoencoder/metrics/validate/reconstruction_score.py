@@ -1,6 +1,6 @@
 """Reconstruction score metric."""
 from jaxtyping import Float, Int64
-from pydantic import PositiveInt, validate_call
+from pydantic import PositiveInt#, validate_call
 import torch
 from torch import Tensor
 from torchmetrics import Metric
@@ -48,7 +48,7 @@ class ReconstructionScoreMetric(Metric):
     source_model_loss_with_reconstruction: Float[Tensor, Axis.COMPONENT_OPTIONAL]
     num_activation_vectors: Int64[Tensor, Axis.SINGLE_ITEM]
 
-    @validate_call
+    #@validate_call
     def __init__(self, num_components: PositiveInt = 1) -> None:
         """Initialise the metric."""
         super().__init__()

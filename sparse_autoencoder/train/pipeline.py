@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING, final
 from jaxtyping import Float, Int
 from lightning import Trainer
 from lightning.pytorch.loggers import WandbLogger
-from pydantic import NonNegativeInt, PositiveInt, validate_call
+from pydantic import NonNegativeInt, PositiveInt#, validate_call
 import torch
 from torch import Tensor
 from torch.utils.data import DataLoader
@@ -82,7 +82,7 @@ class Pipeline:
         return len(self.cache_names)
 
     @final
-    @validate_call(config={"arbitrary_types_allowed": True})
+    #@validate_call(config={"arbitrary_types_allowed": True})
     def __init__(
         self,
         autoencoder: LitSparseAutoencoder,
@@ -141,7 +141,7 @@ class Pipeline:
         )
         self.source_data = iter(source_dataloader)
 
-    @validate_call
+    #@validate_call
     def generate_activations(self, store_size: PositiveInt) -> TensorActivationStore:
         """Generate activations.
 
@@ -221,7 +221,7 @@ class Pipeline:
         )
         trainer.fit(self.autoencoder, activations_dataloader)
 
-    @validate_call
+    #@validate_call
     def validate_sae(self, validation_n_activations: PositiveInt) -> None:
         """Get validation metrics.
 
@@ -335,7 +335,7 @@ class Pipeline:
         self.autoencoder.sparse_autoencoder.save(local_path)
         return local_path
 
-    @validate_call
+    #@validate_call
     def run_pipeline(
         self,
         train_batch_size: PositiveInt,

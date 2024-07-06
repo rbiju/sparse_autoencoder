@@ -2,7 +2,7 @@
 from typing import Any
 
 from jaxtyping import Float, Int64
-from pydantic import PositiveInt, validate_call
+from pydantic import PositiveInt#, validate_call
 import torch
 from torch import Tensor
 from torchmetrics import Metric
@@ -53,7 +53,7 @@ class L0NormMetric(Metric):
     active_neurons_count: Float[Tensor, Axis.COMPONENT_OPTIONAL]
     num_activation_vectors: Int64[Tensor, Axis.SINGLE_ITEM]
 
-    @validate_call
+    # @validate_call
     def __init__(self, num_components: PositiveInt | None = None) -> None:
         """Initialize the metric."""
         super().__init__()

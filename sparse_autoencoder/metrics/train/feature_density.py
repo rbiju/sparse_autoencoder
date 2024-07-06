@@ -2,7 +2,7 @@
 from typing import Any
 
 from jaxtyping import Bool, Float, Int64
-from pydantic import PositiveInt, validate_call
+from pydantic import PositiveInt#, validate_call
 import torch
 from torch import Tensor
 from torchmetrics import Metric
@@ -45,7 +45,7 @@ class FeatureDensityMetric(Metric):
     neuron_fired_count: Float[Tensor, Axis.names(Axis.COMPONENT_OPTIONAL, Axis.LEARNT_FEATURE)]
     num_activation_vectors: Int64[Tensor, Axis.SINGLE_ITEM]
 
-    @validate_call
+    #@validate_call
     def __init__(
         self, num_learned_features: PositiveInt, num_components: PositiveInt | None = None
     ) -> None:

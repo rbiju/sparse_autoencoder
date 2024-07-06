@@ -9,7 +9,7 @@ from collections.abc import Mapping, Sequence
 from typing import TypedDict, final
 
 from datasets import IterableDataset
-from pydantic import PositiveInt, validate_call
+from pydantic import PositiveInt#, validate_call
 from transformers import PreTrainedTokenizerBase
 
 from sparse_autoencoder.source_data.abstract_dataset import SourceDataset, TokenizedPrompts
@@ -64,7 +64,7 @@ class TextDataset(SourceDataset[GenericTextDataBatch]):
 
         return {"input_ids": context_size_prompts}
 
-    @validate_call(config={"arbitrary_types_allowed": True})
+    #@validate_call(config={"arbitrary_types_allowed": True})
     def __init__(
         self,
         dataset_path: str,
@@ -118,7 +118,7 @@ class TextDataset(SourceDataset[GenericTextDataBatch]):
             preprocess_batch_size=preprocess_batch_size,
         )
 
-    @validate_call
+    #@validate_call
     def push_to_hugging_face_hub(
         self,
         repo_id: str,

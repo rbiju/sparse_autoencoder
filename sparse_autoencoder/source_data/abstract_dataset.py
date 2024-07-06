@@ -5,7 +5,7 @@ from typing import Any, Generic, TypedDict, TypeVar, final
 
 from datasets import Dataset, IterableDataset, VerificationMode, load_dataset
 from jaxtyping import Int
-from pydantic import NonNegativeInt, PositiveInt, validate_call
+from pydantic import NonNegativeInt, PositiveInt#, validate_call
 from torch import Tensor
 from torch.utils.data import DataLoader
 from torch.utils.data import Dataset as TorchDataset
@@ -107,7 +107,7 @@ class SourceDataset(ABC, Generic[HuggingFaceDatasetItem]):
         """
 
     @abstractmethod
-    @validate_call
+    #@validate_call
     def __init__(
         self,
         dataset_path: str,

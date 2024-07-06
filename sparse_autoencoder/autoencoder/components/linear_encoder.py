@@ -4,7 +4,7 @@ from typing import final
 
 import einops
 from jaxtyping import Float, Int64
-from pydantic import PositiveInt, validate_call
+from pydantic import PositiveInt#, validate_call
 import torch
 from torch import Tensor
 from torch.nn import Module, Parameter, ReLU, init
@@ -74,7 +74,7 @@ class LinearEncoder(Module):
     activation_function: ReLU
     """Activation function."""
 
-    @validate_call
+    # @validate_call
     def __init__(
         self,
         input_features: PositiveInt,

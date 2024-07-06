@@ -3,7 +3,7 @@ from typing import final
 
 import einops
 from jaxtyping import Float, Int64
-from pydantic import PositiveInt, validate_call
+from pydantic import PositiveInt#, validate_call
 import torch
 from torch import Tensor
 from torch.nn import Module, Parameter, init
@@ -75,7 +75,7 @@ class UnitNormDecoder(Module):
         """
         return [ResetOptimizerParameterDetails(parameter=self.weight, axis=-1)]
 
-    @validate_call
+    # @validate_call
     def __init__(
         self,
         learnt_features: PositiveInt,

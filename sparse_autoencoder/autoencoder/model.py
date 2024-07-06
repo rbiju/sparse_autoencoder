@@ -10,7 +10,7 @@ from pydantic import (
     DirectoryPath,
     NonNegativeInt,
     PositiveInt,
-    validate_call,
+    # validate_call,
 )
 import torch
 from torch import Tensor
@@ -220,7 +220,7 @@ class SparseAutoencoder(Module):
         self.decoder.constrain_weights_unit_norm()
 
     @staticmethod
-    @validate_call
+    # @validate_call
     def get_single_component_state_dict(
         state: SparseAutoencoderState, component_idx: NonNegativeInt
     ) -> dict[str, Tensor]:

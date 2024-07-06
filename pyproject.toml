@@ -13,7 +13,7 @@
         einops=">=0.7.0"
         lightning="^2.1.3"
         mpi4py={version=">=3.1.5", extras=["deepspeed"], optional=true}
-        pydantic=">=2.6.0"
+        pydantic="1.10.15"
         python=">=3.10, <3.12"
         strenum=">=0.4.15"
         tokenizers=">=0.15.1"
@@ -25,11 +25,85 @@
         zstandard=">=0.22.0"
         matplotlib = "3.6.3"
         seaborn = "0.10.1"
+    opencv-python = "^4.10.0.84"
+    typeguard = "4.1.2"
+    diplib = "^3.5.1"
+    escapism = "1.0.1"
+    python-gflags = "3.1.2"
+    boto3 = "^1.9.129"
+    h5py = "3.8.0"
+    hdf5storage = "0.1.15"
+    scipy = "1.13.0"
+    shortuuid = "1.0.11"
+    retry = "0.9.2"
+    datadog = "0.31.0"
+    scikit-image = "0.19.3"
+    openslide-python = "1.3.1"
+    monocle-client = {version = "0.2.1", source = "pathai"}
+    efficientnet-pytorch = "^0.7.1"
+    python-logstash = "0.4.6"
+    scikit-learn = "1.2.0"
+    bson = "0.5.10"
+    attrdict3 = "2.0.2"
+    torch-geometric = "2.0.1"
+    kornia = "0.6.8"
+    pathai-svgrender = "0.0.4"
+    svgpathtools = "^1.4.4"
+    shapely = ">=1.5"
+    json2html = "1.3.0"
+    
+    botocore = "~=1.12"
+    filelock = "^3.12.0"
+    geojson = "2.5.0"
+    GitPython = "3.1.12"
+    hvac = "0.9.6"
+    lpips = "0.1.4"
+    monai = "1.0.1"
+    more-itertools = "8.7.0"
+    packaging = ">=23.0"
+    pytorch-lightning = "1.9.5"
+    pyvips = "2.1.8"
+    requests = "~=2.22"
+    treelib = "1.6.1"
+    pandera = "0.9.0"
+    
+    [tool.poetry.group.noncompliant.dependencies]
+    # The four dependencies torch-scatter, torch-sparse, torch-cluster, and
+    # torch-spline-conv are authored by the same maintainer (rusty1s on GitHub).
+    # These four packages do properly specify torch as a dependency and so we need
+    # to explicitly install them after PyTorch, which we can do here by using this
+    # "secondary" poetry group.
+    # All the wheels can be found here: https://data.pyg.org/whl/torch-2.0.0%2Bcu117.html
+    #
+    # Also see https://github.com/python-poetry/poetry/issues/117
+    #
+    # Explicit wheel for torch-cluster = "1.6.1" on pytorch 2.0.0 and cuda 11.7
+    torch-cluster = {url = "https://data.pyg.org/whl/torch-2.0.0%2Bcu117/torch_cluster-1.6.1%2Bpt20cu117-cp310-cp310-linux_x86_64.whl"}
+
+    # Explicit wheel for torch-scatter = "2.1.1" on pytorch 2.0.0 and cuda 11.7
+    torch-scatter = {url = "https://data.pyg.org/whl/torch-2.0.0%2Bcu117/torch_scatter-2.1.1%2Bpt20cu117-cp310-cp310-linux_x86_64.whl"}
+
+    # Explicit wheel for torch-sparse = "0.6.17" on pytorch 2.0.0 and cuda 11.7
+    torch_sparse = {url = "https://data.pyg.org/whl/torch-2.0.0%2Bcu117/torch_sparse-0.6.17%2Bpt20cu117-cp310-cp310-linux_x86_64.whl"}
+
+    # Explicit wheel for torch-spline = "1.2.2" on pytorch 2.0.0 and cuda 11.7
+    torch-spline-conv = {url = "https://data.pyg.org/whl/torch-2.0.0%2Bcu117/torch_spline_conv-1.2.2%2Bpt20cu117-cp310-cp310-linux_x86_64.whl"}
 
     [[tool.poetry.source]]
     name = "torch118"
     url = "https://download.pytorch.org/whl/cu118"
     priority = "explicit"
+    
+    [[tool.poetry.source]]
+    name = "pathai-internal"
+    url  = "https://sonatype.services.pathai.com/repository/pypi-internal/"
+    priority = "primary"
+
+    [[tool.poetry.source]]
+    name = "pathai"
+    url  = "https://sonatype.services.pathai.com/repository/pypi-all/simple/"
+    priority = "primary"
+
 
     [tool.poetry.group]
         [tool.poetry.group.dev.dependencies]

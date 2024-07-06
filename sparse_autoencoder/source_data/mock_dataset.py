@@ -7,7 +7,7 @@ from typing import Literal, final
 
 from datasets import IterableDataset
 from jaxtyping import Int
-from pydantic import PositiveInt, validate_call
+from pydantic import PositiveInt#, validate_call
 import torch
 from torch import Tensor
 from transformers import PreTrainedTokenizerFast
@@ -140,7 +140,7 @@ class MockDataset(SourceDataset[TokenizedPrompts]):
         # Nothing to do here
         return source_batch
 
-    @validate_call
+    #@validate_call
     def __init__(
         self,
         context_size: PositiveInt = 250,

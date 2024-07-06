@@ -2,7 +2,7 @@
 from typing import Any
 
 from jaxtyping import Bool, Float, Int
-from pydantic import PositiveInt, validate_call
+from pydantic import PositiveInt#, validate_call
 import torch
 from torch import Tensor
 from torchmetrics import Metric
@@ -32,7 +32,7 @@ class NeuronFiredCountMetric(Metric):
     # State
     neuron_fired_count: Float[Tensor, Axis.names(Axis.COMPONENT_OPTIONAL, Axis.LEARNT_FEATURE)]
 
-    @validate_call
+    # @validate_call
     def __init__(
         self,
         num_learned_features: PositiveInt,

@@ -4,7 +4,7 @@ from typing import Annotated
 
 from einops import rearrange
 from jaxtyping import Bool, Float, Int
-from pydantic import Field, NonNegativeInt, PositiveInt, validate_call
+from pydantic import Field, NonNegativeInt, PositiveInt#, validate_call
 import torch
 from torch import Tensor, distributed
 from torch.distributed import get_world_size, group
@@ -96,7 +96,7 @@ class ActivationResampler(Metric):
     start_collecting_neuron_activity_process: int
     start_collecting_loss_process: int
 
-    @validate_call
+    # @validate_call
     def __init__(
         self,
         n_learned_features: PositiveInt,
