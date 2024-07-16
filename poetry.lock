@@ -9081,4 +9081,4 @@ reference = "pathai"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10, <3.12"
-content-hash = "1858510daeda9348072dc9019ea5f807b9132457260ed68d2a1ea480e4c77a1a"
+content-hash = "269b1e360904dfe4deb722a791226161d4d89c60ed9d6dd69706d0c06fe69e33"
